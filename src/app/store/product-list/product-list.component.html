@@ -1,0 +1,12 @@
+<p>product-list works!</p>
+
+{{name}}
+
+<hr>
+
+<div class="container" *ngFor="let product of products; let i = index">
+    <div (click)="navigateTo(product.name)">   
+        {{product.name}}
+        {{product.amount}}
+    </div>
+</div>

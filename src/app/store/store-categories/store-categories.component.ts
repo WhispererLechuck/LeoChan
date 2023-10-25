@@ -17,42 +17,44 @@ export class StoreCategoriesComponent {
     {
       name: 'Fresh Food',
       children:[
-        {name: 'Meat',router:'meat'},
-        {name: 'Fish', router: ''},
-        {name: 'Fruit', router: ''},
+        {name: 'Meat',router:'freshmeat'},
+        {name: 'Fish', router: 'freshfish'},
+        {name: 'Fruits & Vegetables', router: 'veggies'},
       ]
     },
     {
       name: 'Bakery',
       children:[
-        {name: 'Bread', router: ''},
-        {name: 'Sweets', router: ''},
-        {name: 'Salted', router: ''},
-        {name: 'Cakes', router: ''},
+        {name: 'Bread', router: 'bread'},
+        {name: 'Sweets', router: 'sweets'},
+        {name: 'Salted', router: 'salted'},
+        {name: 'Cakes', router: 'cakes'},
       ]
     },
     {
       name: 'Frozen Food',
       children:[
-        {name: 'Vegetables', router: ''},
-        {name: 'Meat & Fish', router: ''},
-        {name: 'Pizzas', router: ''},
-        {name: 'Ice Creams', router: ''},
+        {name: 'Vegetables', router: 'frozenVeggies'},
+        {name: 'Meat & Fish', router: 'meatfish'},
+        {name: 'Pizzas', router: 'pizzas'},
+        {name: 'Ice Creams', router: 'icecreams'},
       ]
     },
     {
       name: 'Drinks & Beverages',
       children:[
-        {name: 'Water', router: ''},
-        {name: 'Sodas', router: ''},
-        {name: 'Liquors', router: ''},
-        {name: 'Beers', router: ''},
-        {name: 'Wines', router: ''},
+        {name: 'Water', router: 'water'},
+        {name: 'Sodas', router: 'sodas'},
+        {name: 'Liquors', router: 'liquors'},
+        {name: 'Beers', router: 'beers'},
+        {name: 'Wines', router: 'wines'},
       ]
     },
     {
       name: 'Household',
       children:[
+        {name: 'Limpia, cerdo', router: ''},
+        {name: '', router: ''},
         {name: '', router: ''},
       ]
     },

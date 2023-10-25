@@ -11,7 +11,11 @@
             <div id="flush-collapse{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">           
                 <ul class="list-group list-group-flush">
-                    <li *ngFor="let child of category.children" class="list-group-item">{{child.name}}</li>
+                    <li *ngFor="let child of category.children" class="list-group-item">
+                        <span routerLink="{{child.router}}">
+                            {{child.name}}
+                        </span>
+                    </li>
                 </ul>
             </div>
             </div>
