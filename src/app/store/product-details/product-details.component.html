@@ -1,2 +1,9 @@
 <p>product-details works!</p>
 {{product?.name}}{{product?.amount}}{{product?.description}}
+<div>
+    <div>
+        <label>Quantity</label>
+        <input #num type="number" class="form-control w-25" min="0" [(ngModel)]="value" max="{{product?.amount}}">
+    </div>
+    <button class="btn" (click)="addItem()">Add Cart</button>
+</div>

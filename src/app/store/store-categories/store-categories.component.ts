@@ -35,7 +35,7 @@ export class StoreCategoriesComponent {
       name: 'Frozen Food',
       children:[
         {name: 'Vegetables', router: 'frozenVeggies'},
-        {name: 'Meat & Fish', router: 'meatfish'},
+        {name: 'Meat & Fish', router: 'frozenmeatfish'},
         {name: 'Pizzas', router: 'pizzas'},
         {name: 'Ice Creams', router: 'icecreams'},
       ]
@@ -51,27 +51,29 @@ export class StoreCategoriesComponent {
       ]
     },
     {
-      name: 'Household',
+      name: 'Food Cupboard',
       children:[
-        {name: 'Limpia, cerdo', router: ''},
-        {name: '', router: ''},
-        {name: '', router: ''},
+        {name: 'Pasta & Rice', router: 'pasttandrice'},
+        {name: 'Salt and spices', router: 'spices'},
+        {name: 'Oil', router: 'oil'},
       ]
     },
     {
       name: 'Health & Beauty',
       children:[
-        {name: 'Shampoos', router: ''},
-        {name: 'Shower', router: ''},
-        {name: 'Conditioner', router: ''},
-        {name: 'Deodorants', router: ''},
-        {name: '', router: ''},
+        {name: 'Shampoos', router: 'shampoos'},
+        {name: 'Shower', router: 'shower'},
+        {name: 'Conditioner', router: 'conditioner'},
+        {name: 'Deodorants', router: 'deodorants'},
       ]
     },
     {
-      name: '',
+      name: 'Snacks & Treats',
       children:[
-        {name: '', router: ''},
+        {name: 'Chips', router: 'chips'},
+        {name: 'Candies', router: 'candies'},
+        {name: 'Chocolates', router: 'chocolates'},
+        {name: 'Cereals', router: 'cereals'},
       ]
     },
     

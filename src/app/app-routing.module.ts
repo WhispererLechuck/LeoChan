@@ -6,6 +6,7 @@ import { StoreComponent } from './store/store.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ProductListComponent } from './store/product-list/product-list.component';
 import { ProductDetailsComponent } from './store/product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
@@ -14,9 +15,10 @@ const routes: Routes = [
     {path:':name', component:ProductListComponent},
     {path:':name', children: [
 
-    {path: ':productName', component: ProductDetailsComponent, }
+    {path: ':id', component: ProductDetailsComponent, }
     ] },
   ]},
+  {path: 'cart', component: CartComponent},
   {path: 'notFound', component: NotFoundComponent},
   {path:'**', redirectTo:'notFound'}
 ];

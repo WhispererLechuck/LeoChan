@@ -12,6 +12,8 @@ import { StoreCategoriesComponent } from './store/store-categories/store-categor
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ProductListComponent } from './store/product-list/product-list.component';
 import { ProductDetailsComponent } from './store/product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { ProductDetailsComponent } from './store/product-details/product-details
     StoreCategoriesComponent,
     NotFoundComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
