@@ -14,6 +14,8 @@ import { ProductListComponent } from './store/product-list/product-list.componen
 import { ProductDetailsComponent } from './store/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
+import { WelcomeShopComponent } from './store/welcome-shop/welcome-shop.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     NotFoundComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    WelcomeShopComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

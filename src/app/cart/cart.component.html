@@ -1,6 +1,19 @@
 <p>cart works!</p>
 
-<div class="container" *ngFor="let product of cartActual">
-    {{product.name}}
-    {{product.amount}}
+<div class="container" *ngFor="let product of cartActual; let i = index">
+    <div class="">
+        {{product.name}}
+        {{product.amount}}
+        {{(product.amount*product.price).toFixed(2)}}USD
+    
+        <input #value min="0" [(ngModel)]="inputValues[i]" type="number" value="product.amount">
+        <button class="btn" (click)="updateProd(product,inputValues[i])">update</button>
+        <button class="btn" (click)="deleteProd(product.name)">Delete</button>    
+    </div>
+</div>
+<div>
+    Subtotal: {{totalCartValue.toFixed(2)}}USD
+</div>
+<div>
+    <button class="btn btn-primary" (click)="goBack()">Keep Shopping</button>
 </div>

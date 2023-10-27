@@ -29,20 +29,39 @@ export class CartService {
     return ids;
   }
   addProduct(product: ProductsModel, quantity: number) {
-    product.amount = quantity;
-    // if (this.cart.length>0) {
-    //   const ids = this.getIds();
-    //   if(ids.includes(product.id)){
-    //     let oldProd = this.getProduct(product.name);
-    //     oldProd.amount = oldProd.amount + product.amount;
-    //   }else{
-    //     this.cart.push(product);
+    const newProduct = { ...product};
+    newProduct.amount = quantity;
+    if (this.cart.length>0) {
+      const ids = this.getIds();
+      if(ids.includes(product.id)){
+        let oldProd = this.getProduct(newProduct.name);
+        console.log(oldProd.name+ ', ' + oldProd.amount);
+        oldProd.amount += newProduct.amount;
+        console.log(oldProd.name+ ', ' + oldProd.amount);
+      }
+      else{
+        this.cart.push(newProduct);
 
-    //   }
-    // }
-    this.cart.push(product);
-    console.log(this.cart.slice())
+      }     
+    }else{
+        this.cart.push(newProduct);
+
+      }
+    // this.cart.push(product);
+    // console.log(this.cart.slice());
+     this.cartChanged.next(this.cart.slice());
+  }
+
+  updateProductAmount(product: ProductsModel, quantity: number){
+    this.getProduct(product.name).amount = quantity;
     this.cartChanged.next(this.cart.slice());
+  }
+
+  deleteProduct(product: string){
+    const index = this.getCart().findIndex(x => x.name === product);
+    this.cart.splice(index,1);
+    this.cartChanged.next(this.cart.slice());
+
   }
 
 
