@@ -1,0 +1,22 @@
+.background{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(8, 8, 8, 0.7);
+    z-index: 50;
+}
+.popup{
+    position: fixed;
+    background-color: rgb(230, 157, 49);
+    left: 20vw;
+    top: 30vh;
+    width: 60vw;
+    z-index: 100;
+    padding: 16px;
+    border-radius: 3px;
+}
+.popupActions{
+    text-align: right;
+}

@@ -13,9 +13,12 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ProductListComponent } from './store/product-list/product-list.component';
 import { ProductDetailsComponent } from './store/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WelcomeShopComponent } from './store/welcome-shop/welcome-shop.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { PopupAddComponent } from './store/popup-add/popup-add.component';
+import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,12 +34,16 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
     ProductDetailsComponent,
     CartComponent,
     WelcomeShopComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PopupAddComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

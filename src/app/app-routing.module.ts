@@ -8,21 +8,29 @@ import { ProductListComponent } from './store/product-list/product-list.componen
 import { ProductDetailsComponent } from './store/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { WelcomeShopComponent } from './store/welcome-shop/welcome-shop.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { CareersComponent } from './careers/careers.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'careers', component: CareersComponent},
   {path: 'store', component: StoreComponent, children:[
     {path:'', component: WelcomeShopComponent},
     {path:':name', component:ProductListComponent},
     {path:':name', children: [
 
     {path: ':id', component: ProductDetailsComponent, }
-    ] },
+    ]},
   ]},
   {path: 'cart', component: CartComponent},
-  //CHECKOUT, BETTER AS CHILDREN SO: .../cart/checkout
+  {path: 'cart', children: [
+    {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]}
+  ]},
   {path: 'notFound', component: NotFoundComponent},
+  {path: 'auth', component: AuthComponent},
   {path:'**', redirectTo:'notFound'}
 ];
 
@@ -30,4 +38,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  
+}

@@ -14,7 +14,8 @@ export class ProductDetailsComponent implements OnInit{
   product!: ProductsModel;
   @ViewChild('num') num !: ElementRef;
   value!: any;
-  errorFlag: boolean =false;
+  errorMessage?: string;
+  popUpFlag: boolean = false;
 
   constructor(
     private activatedRoute:ActivatedRoute, 
@@ -22,14 +23,24 @@ export class ProductDetailsComponent implements OnInit{
     private cartService: CartService,
     private route: Router){}
 
-
+    closeError(){
+      this.errorMessage = '';
+    }
+    closePop(){
+      this.popUpFlag = false;
+    }
 
     addItem(){
       if(this.value>0 || this.value != undefined){
-        this.cartService.addProduct(this.product,this.value);
-        this.route.navigate(['cart']);
+        if(this.cartService.checkAmount(this.product.name,this.value) && this.value > 0){
+          this.cartService.addProduct(this.product,this.value);
+          this.popUpFlag = true;
+          // this.route.navigate(['cart']);
+        }else{
+          this.errorMessage = 'The amount selected is not in our stock.'
+        }
       }
-      else this.errorFlag = true;
+      else this.errorMessage = 'Enter a valid amount';
     }
 
     ngOnInit(): void {

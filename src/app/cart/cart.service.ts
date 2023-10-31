@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ProductsModel } from '../shared/products/producs.model';
 import { Subject } from 'rxjs';
+import { ProductsService } from '../shared/products/products.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService{
   cartChanged = new Subject<ProductsModel[]>();
 
   cart:ProductsModel[]=[];
@@ -35,9 +36,7 @@ export class CartService {
       const ids = this.getIds();
       if(ids.includes(product.id)){
         let oldProd = this.getProduct(newProduct.name);
-        console.log(oldProd.name+ ', ' + oldProd.amount);
         oldProd.amount += newProduct.amount;
-        console.log(oldProd.name+ ', ' + oldProd.amount);
       }
       else{
         this.cart.push(newProduct);
@@ -47,9 +46,14 @@ export class CartService {
         this.cart.push(newProduct);
 
       }
-    // this.cart.push(product);
-    // console.log(this.cart.slice());
      this.cartChanged.next(this.cart.slice());
+  }
+  getPrice(){
+    let totalCartValue : number = 0;
+    this.cart.forEach(element => {
+      totalCartValue += element.price*element.amount;
+    });
+    return totalCartValue;
   }
 
   updateProductAmount(product: ProductsModel, quantity: number){
@@ -64,6 +68,16 @@ export class CartService {
 
   }
 
+  checkAmount(productName:string, amount: number){
+    const productStock = this.productsService.getItem(productName).amount;
+    if (productStock>=amount) {
+      return true;
+    } else{
+      return false;
+    }
 
-  constructor() { }
+  }
+
+
+  constructor(private productsService: ProductsService) { }
 }
