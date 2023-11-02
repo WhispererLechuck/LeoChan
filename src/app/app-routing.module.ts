@@ -12,6 +12,8 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { CareersComponent } from './careers/careers.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ProfileComponent } from './auth/profile/profile.component';
+import { SearchComponent } from './store/search/search.component';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
@@ -29,8 +31,12 @@ const routes: Routes = [
   {path: 'cart', children: [
     {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]}
   ]},
+  {path: 'search',children :[
+    {path: ':search', component: SearchComponent}
+  ]},
   {path: 'notFound', component: NotFoundComponent},
   {path: 'auth', component: AuthComponent},
+  {path: 'profile', component: ProfileComponent},
   {path:'**', redirectTo:'notFound'}
 ];
 

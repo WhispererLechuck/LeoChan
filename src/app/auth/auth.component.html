@@ -1,25 +1,25 @@
 <div class="container">
-    <div class="row">
+    <div class="row" style="justify-content: center">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
                 <div *ngIf="isLoading" style="text-align: center;">
                 <!-- <app-loading-spinner></app-loading-spinner> -->
                 </div> 
                 <form [formGroup]="authForm" (ngSubmit)="onClick()" *ngIf="!isLoading">
-                <div class="form-group">
+                <div class="form-group my-3">
                     <label id="email">Email:</label>
-                    <input type="email" id="email" class="form-control" formControlName="email">
+                    <input type="email" id="email" class="form-control mt-1" formControlName="email">
                 </div>
-                <div class="form-group">
+                <div class="form-group my-3">
                     <label id="password">Password</label>
-                    <input type="password" id="password" class="form-control" formControlName="password">
+                    <input type="password" id="password" class="form-control mt-1" formControlName="password">
                 </div>
-                <div>
+                <div class="mx-1 my-3">
                     <button #clickButton class="btn btn-primary" type="submit" [disabled]="!authForm.valid">{{actualMode}}</button> | 
                     
                     <button class="btn btn-primary" (click)="switchMode()" type="button">Switch {{isAuthMode ? 'Auth' : 'Login'}}</button>
                 </div>
             </form>
-            <div *ngIf="error" class="alert alert-danger">
+            <div *ngIf="error" class="alert alert-danger my-2">
                 <span >Error: {{error}} 
                 <button style="float: right; cursor: pointer;" class="btn btn-danger btn-xs" (click)="clearError()">x</button>
             </span>

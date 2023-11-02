@@ -62,27 +62,27 @@ export class AuthService{
                 this.handleAuth(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
             }))
     }
-    // autoLogin(){
-    //     const localUser: {
-    //         email:string,
-    //         id: string,
-    //         _token: string,
-    //         _tokenExpirationDate: string
-    //     } = JSON.parse(localStorage.getItem('localUser'));
-    //     if (!localUser) {
-    //         return;
-    //     }
-    //     const loadedUser = new User(
-    //         localUser.email,
-    //         localUser.id,
-    //         localUser._token,
-    //         new Date(localUser._tokenExpirationDate));
-    //         if(loadedUser.token){
-    //             const nextExpiration = new Date(localUser._tokenExpirationDate).getTime() - new Date().getTime() ;
-    //             this.user.next(loadedUser);
-    //             this.autologout(nextExpiration);
-    //         }
-    // }
+    autoLogin(){
+        const localUser: {
+            email:string,
+            id: string,
+            _token: string,
+            _tokenExpirationDate: string
+        } = JSON.parse(localStorage.getItem('localUser')!);
+        if (!localUser) {
+            return;
+        }
+        const loadedUser = new User(
+            localUser.email,
+            localUser.id,
+            localUser._token,
+            new Date(localUser._tokenExpirationDate));
+            if(loadedUser.token){
+                const nextExpiration = new Date(localUser._tokenExpirationDate).getTime() - new Date().getTime() ;
+                this.user.next(loadedUser);
+                this.autologout(nextExpiration);
+            }
+    }
     private handleAuth(email: string, localId: string, tokenId: string, expiresIn: number){
 
         const expireDate = new Date(new Date().getTime() + expiresIn * 1000);
@@ -95,7 +95,9 @@ export class AuthService{
         console.log(error);
         let errorMessage = 'Unknown error!';
         if(!error.error || !error.error.error){
-            return throwError(errorMessage);
+            return throwError(()=> new Error(errorMessage));
+
+            // return throwError(errorMessage);
         }
         switch(error.error.error.message){
             case 'EMAIL_EXISTS':
@@ -117,7 +119,9 @@ export class AuthService{
                 errorMessage = 'Invalid credentials';
                 break;
         }
-        return throwError(errorMessage);
+        // return throwError(errorMessage);
+        return throwError(()=> new Error(errorMessage));
+
 
     }
 

@@ -24,8 +24,11 @@
             <a class="nav-link " routerLink="about">About</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" role="search">          
+          <input class="form-control me-2" (keyup.enter)="onEnter()" name="search" [(ngModel)]="search" type="search" placeholder="Search" aria-label="Search">
+          <button (click)="navitateProfile()" class="btn btn-outline-warning me-2" type="button">
+            <i class="bi bi-person-circle"></i>
+          </button>
           <button class="btn btn-outline-success" type="button" routerLink="cart">
             <i class="bi bi-cart"></i>
           </button> 

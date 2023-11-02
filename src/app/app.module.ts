@@ -19,6 +19,8 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { PopupAddComponent } from './store/popup-add/popup-add.component';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './auth/profile/profile.component';
+import { SearchComponent } from './store/search/search.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomeShopComponent,
     CheckoutComponent,
     PopupAddComponent,
-    AuthComponent
+    AuthComponent,
+    ProfileComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

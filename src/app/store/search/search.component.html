@@ -1,0 +1,10 @@
+
+<div class="row text-center">
+    <div class="col-4" *ngFor="let product of products; let i = index">
+        <div (click)="navigateTo(product.name)">   
+            <img src="{{product.imagePath}}" class="img-fluid rounded">
+            {{product.name}}
+            {{product.price}}$
+        </div>
+    </div>
+</div>
