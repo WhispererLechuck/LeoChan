@@ -23,6 +23,11 @@ export class ProductListComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) =>{
       this.name = params['name'];
+      console.log('params: '+this.name +', is category: '+ this.productsService.isCategory(this.name!))
+      if(!this.productsService.isCategory(this.name!)){
+        this.route.navigate(['notFound'],{relativeTo: this.activatedRoute.parent});
+
+      }      
       this.products = this.productsService.getProductsCategory(params['name']);
       });
   }

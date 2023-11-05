@@ -51,14 +51,14 @@
             <!-- <th scope="row">{{i}}</th> -->
             <td>{{product.name}}</td>
             <td>{{product.amount}}</td>
-            <td>{{product.price}}$</td>
-            <td>{{(product.amount*product.price).toFixed(2)}}$</td>
+            <td>{{product.price}}€</td>
+            <td>{{(product.amount*product.price).toFixed(2)}}€</td>
             <td><input #value min="0" [(ngModel)]="inputValues[i]" type="number" value="product.amount" class=" form-control-sm"></td>
             <td><button class="btn" (click)="updateProd(product,inputValues[i])">update</button></td>
             <td><button class="btn" (click)="deleteProd(product.name)">Delete</button></td>
           </tr>
           <tr>
-            <td> Subtotal: {{totalCartValue.toFixed(2)}}$
+            <td> Subtotal: {{totalCartValue.toFixed(2)}}€
             </td>
           </tr>
         </tbody>

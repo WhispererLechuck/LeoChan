@@ -47,6 +47,9 @@ export class ProductDetailsComponent implements OnInit{
       this.activatedRoute.params.subscribe((params: Params) =>{
 
       const productName = params['id'];
+      if(!this.productsService.getItem(productName)){
+        this.route.navigate(['notFound'],{relativeTo: this.activatedRoute.parent})
+      }
       this.product = this.productsService.getItem(productName);
         });
     }

@@ -21,6 +21,9 @@ import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { SearchComponent } from './store/search/search.component';
+import { PositionsListComponent } from './careers/positions-list/positions-list.component';
+import { CareersWelcomeComponent } from './careers/careers-welcome/careers-welcome.component';
+import { PositionDetailComponent } from './careers/position-detail/position-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { SearchComponent } from './store/search/search.component';
     PopupAddComponent,
     AuthComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    PositionsListComponent,
+    CareersWelcomeComponent,
+    PositionDetailComponent
   ],
   imports: [
     BrowserModule,

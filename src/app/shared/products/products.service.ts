@@ -44,6 +44,30 @@ export class ProductsService {
     return products;
   }
 
+  isCategory(name :string){
+    let flag= false;
+    this.getProducts().forEach((element,index) => {
+      if(element.category=== name){
+        console.log(element.category + ' - ' +name)
+         flag = true;
+      }
+      
+    })
+    return flag;
+  }
+
+  isProduct(name: string){
+    this.products.forEach((element,index) => {
+      if(element.name.replace(' ','').toLowerCase() == name.replaceAll(' ','').toLowerCase()){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+    return false;
+  }
+
   products: ProductsModel[] = [
     { id: 1, name: 'Beef Steak', amount: 10, category: 'freshmeat', description: 'Delicious beef steak aged 8 months', price: 14.99 },
     { id: 2, name: 'Salmon Fillet', amount: 15, category: 'freshfish', description: 'Fresh salmon fillet, great for grilling or baking', price: 18.75 },

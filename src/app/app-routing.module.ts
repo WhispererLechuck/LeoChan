@@ -14,17 +14,25 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { SearchComponent } from './store/search/search.component';
+import { CareersWelcomeComponent } from './careers/careers-welcome/careers-welcome.component';
+import { PositionDetailComponent } from './careers/position-detail/position-detail.component';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'careers', component: CareersComponent},
+  {path: 'careers', component: CareersComponent, children:[
+    {path:'', component: CareersWelcomeComponent},
+    {path: 'notFound', component: NotFoundComponent},
+    {path:':positionId', component:PositionDetailComponent},
+  ]
+  },
   {path: 'store', component: StoreComponent, children:[
     {path:'', component: WelcomeShopComponent},
-    {path:':name', component:ProductListComponent},
+    {path: 'notFound', component: NotFoundComponent},
+    {path:':name', component: ProductListComponent},
     {path:':name', children: [
-
-    {path: ':id', component: ProductDetailsComponent, }
+      {path: 'notFound', component: NotFoundComponent},
+      {path: ':id', component: ProductDetailsComponent, }
     ]},
   ]},
   {path: 'cart', component: CartComponent},
