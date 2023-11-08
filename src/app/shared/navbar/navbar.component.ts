@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit{
   onEnter() {
     if(this.search != undefined || this.search === ''){
       this.router.navigate(['search/'+this.search])
+      this.search = '';
     } else {
       alert("valor invalido imbesil")
     }

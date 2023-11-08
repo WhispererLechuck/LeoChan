@@ -24,6 +24,7 @@ import { SearchComponent } from './store/search/search.component';
 import { PositionsListComponent } from './careers/positions-list/positions-list.component';
 import { CareersWelcomeComponent } from './careers/careers-welcome/careers-welcome.component';
 import { PositionDetailComponent } from './careers/position-detail/position-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PositionDetailComponent } from './careers/position-detail/position-deta
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

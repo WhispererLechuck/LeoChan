@@ -9,7 +9,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./position-detail.component.css']
 })
 export class PositionDetailComponent implements OnInit{
+jobApplication() {
+  alert('To be implemented')
+}
   job?: positionModel;
+  location?: string;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params)=>{
@@ -18,6 +22,7 @@ export class PositionDetailComponent implements OnInit{
       if(this.careersService.getIndex(productId) == -1){
         this.router.navigate(['notFound'],{relativeTo: this.activatedRoute.parent})     
       } 
+      this.location = this.job.location.join(' - ');
     });
   }
   constructor(

@@ -1,0 +1,40 @@
+.containerGrid{
+    display: grid;
+    grid-template-columns: [firstCol] 30vw [secondCol] 30vw;
+    grid-template-rows: [firstRow] 40vh [secondRow] 30vh;
+    gap: 20px;
+    justify-content: center;
+}
+.imageGrid{
+    grid-column-start: firstCol;
+    
+    grid-row-start: firstRow;
+    grid-row-end: secondRow;
+}
+.imgLeo {
+    filter:contrast(100);
+    max-width: 30vw;
+}
+.textGrid1{
+    grid-column-start: secondCol;
+    grid-column-end: secondCol;
+    grid-row-start: firstRow;
+    grid-row-end: secondRow;
+    font-size: 1vw;
+    max-width: 100%;
+    max-height: 70vh;
+}
+.textGrid2{
+    grid-column-start: firstCol;
+    grid-column-end: secondCol;
+    grid-row-start: secondRow;
+    font-size: 2vh;
+    padding: 5px;
+
+}
+ p{
+    font-size: calc(6px + 1vw);
+    /* font-size: calc(8px + 1vw); */
+ }
+
+

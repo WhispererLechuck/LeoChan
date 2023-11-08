@@ -1,0 +1,14 @@
+.rightContainer{
+    margin-top: 2vh;
+}
+.descriptionText{
+    /* font-size: 1rem; */
+} 
+.requirementText{
+    font-size: 0.9rem;
+}
+.colcenter{
+    display: flex !important;
+    flex-wrap: wrap;
+    align-content: center;
+}

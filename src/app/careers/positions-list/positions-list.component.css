@@ -1,0 +1,25 @@
+
+
+.location { 
+    font-size: .8em;
+    margin: 0;
+}
+
+
+
+
+.component-container {
+    position: relative;
+    width: 80%; /* Ancho deseado para el componente */
+    margin: 0 auto; /* Centra el componente en la página */
+    height: 100%;
+  }
+  
+  .pagination-container {
+    position:sticky ;
+    bottom: 0;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    text-align: center;
+  }

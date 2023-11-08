@@ -11,6 +11,7 @@ import { ProductsService } from 'src/app/shared/products/products.service';
 export class SearchComponent implements OnInit{
   name ?: string;
   products?: ProductsModel[];
+  size!: number;
 
   navigateTo(productName: string){
     const productCat = this.productsService.getItem(productName).category;
@@ -21,7 +22,14 @@ export class SearchComponent implements OnInit{
       this.activatedRoute.params.subscribe((params: Params) =>{
       this.name = params['search'];
       this.products = this.productsService.getProductsStarting(params['search']);
+      this.size = this.getSize(this.products);
       }); 
+    }
+    getSize(products: ProductsModel[]){
+      if(products != undefined || products != null){
+        return Object.keys(products!).length;
+      }
+      return 0;
     }
 
   constructor(
