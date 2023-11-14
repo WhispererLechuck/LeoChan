@@ -4,13 +4,22 @@
 
 <hr>
  -->
-
-<div class="row text-center">
-    <div class="col-4" *ngFor="let product of products; let i = index">
-        <div (click)="navigateTo(product.name)">   
-            <img src="{{product.imagePath}}" class="img-fluid rounded">
-            {{product.name}}
-            {{product.price}}€
+<div class="disp mt-3">
+    <div class="row text-center mb-2">
+        <div class="col-4 mb-2" *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index" style="cursor: pointer;">
+            <div (click)="navigateTo(product.name)">   
+                <img src="{{product.imagePath}}" class="img-fluid rounded" style="max-width: 12vw;">
+                <div class="mt-1">
+                    <span>{{product.name}}</span>
+                    <br>
+                    <span>{{product.price}}€</span>
+            </div>
+            </div>
         </div>
     </div>
+    
 </div>
+
+    <div class="pagination pagination-container" >
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>

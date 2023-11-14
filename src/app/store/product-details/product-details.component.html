@@ -1,14 +1,27 @@
-<p>product-details works!</p>
-{{product.name}}{{product.amount}}{{product.description}}
-<div>
-    <div>
-        <label>Quantity</label>
-        <input #num type="number" class="form-control w-25" min="0" [(ngModel)]="value" max="{{product.amount}}">
-    </div>
-    <button class="btn btn-secondary" (click)="addItem()">Add Cart</button>
-    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeError()"></button>
 
+<div class="container mt-2">
+    <div class="row">
+        <h2>{{product.name}}</h2>
+        <hr class="mb-3">
+        <div class="col-4">
+            <img src="{{product.imagePath}}" alt="" class="img-fluid rounded">
+        </div>
+        <div class="col-8 fw-light text-end">
+            <div>
+                <p><em>{{product.description}}</em></p>
+                <p>Stock: {{product.amount}}</p>
+            </div>      
+            <div class="input">
+            <label>Quantity</label>
+            <input #num type="number" class="form-control w-25 my-2" min="0" [(ngModel)]="value" max="{{product.amount}}">
+            </div>
+  
+            <button class="btn btn-leo" (click)="addItem()">Add Cart</button>
+            <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeError()"></button>
+            </div> 
+        </div>
+    
     </div>
 </div>
 <app-popup-add *ngIf="popUpFlag" [product]="product" (close)="closePop()" [amount]="value"></app-popup-add>

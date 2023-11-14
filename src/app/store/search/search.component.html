@@ -1,5 +1,5 @@
 
-
+<div class="main" style="height: 80vh;">
 
 <div class="container mt-4">
 
@@ -7,8 +7,8 @@
         <h2> {{size}} results for "{{name}}":</h2>
     </div>
 
-    <div class="row text-center mt-3">
-        <div class="col-2" *ngFor="let product of products; let i = index">
+    <div *ngIf="products.length>0" class="row text-center mt-3">
+        <div class="col-2" *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: page }; let i = index ">
             <div (click)="navigateTo(product.name)">   
                 <img src="{{product.imagePath}}" class="img-fluid rounded">
                 {{product.name}}
@@ -16,4 +16,17 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="products.length<1" class="row text-center mt-3"> 
+        <h2>There are no products with your requirements</h2>
+        <div class="image">
+            <img src="https://th.bing.com/th/id/OIG.PBbYTgOZk_GH43padfoX?pid=ImgGn&w=1024&h=1024&rs=1" alt="" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+
+<div class="has-text-left pagination-container" >
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
 </div>

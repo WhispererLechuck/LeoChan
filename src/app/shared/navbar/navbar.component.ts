@@ -10,15 +10,17 @@ import { ProductsModel } from '../products/producs.model';
 })
 export class NavbarComponent implements OnInit{
 
+  flagInput: boolean = false;
   search?: string;
   productList: ProductsModel[] = this.productsService.getProducts();
 
   onEnter() {
-    if(this.search != undefined || this.search === ''){
+    this.flagInput = false;
+    if(this.search){
       this.router.navigate(['search/'+this.search])
       this.search = '';
     } else {
-      alert("valor invalido imbesil")
+      this.flagInput = true;
     }
     
   }

@@ -25,6 +25,8 @@ import { PositionsListComponent } from './careers/positions-list/positions-list.
 import { CareersWelcomeComponent } from './careers/careers-welcome/careers-welcome.component';
 import { PositionDetailComponent } from './careers/position-detail/position-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TypingComponent } from './home/typing/typing.component';
+import { PopUpApplyComponent } from './careers/pop-up-apply/pop-up-apply.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SearchComponent,
     PositionsListComponent,
     CareersWelcomeComponent,
-    PositionDetailComponent
+    PositionDetailComponent,
+    TypingComponent,
+    PopUpApplyComponent,
+    
   ],
   imports: [
     BrowserModule,

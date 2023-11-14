@@ -9,8 +9,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./position-detail.component.css']
 })
 export class PositionDetailComponent implements OnInit{
+popFlag: boolean = false;
 jobApplication() {
-  alert('To be implemented')
+  this.popFlag = true;
+}
+closePop(){
+  this.popFlag = false;
 }
   job?: positionModel;
   location?: string;

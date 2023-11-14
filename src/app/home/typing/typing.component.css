@@ -1,0 +1,40 @@
+#container {
+    white-space: pre;
+  }
+  
+  #text {
+    vertical-align: middle;
+    color: #ec8f24;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-size: calc(17px + 2vw);
+    margin-top: 1vh;
+  }
+
+#test {
+    vertical-align: middle;
+    color: #ec8f24;
+    letter-spacing: 2px;
+    display: inline-block;
+
+    font-size: calc(17px + 1vw);
+}
+
+#cursor {
+    vertical-align: middle;
+    width: 3px;
+    height: 50px;
+    background-color: #ec8f24;
+    animation: blink .75s step-end infinite;
+    display: inline-block;
+}
+
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	50% { 
+		background-color: orange; 
+	}
+}

@@ -48,7 +48,6 @@ export class ProductsService {
     let flag= false;
     this.getProducts().forEach((element,index) => {
       if(element.category=== name){
-        console.log(element.category + ' - ' +name)
          flag = true;
       }
       

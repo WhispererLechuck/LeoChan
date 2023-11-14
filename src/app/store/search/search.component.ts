@@ -10,8 +10,12 @@ import { ProductsService } from 'src/app/shared/products/products.service';
 })
 export class SearchComponent implements OnInit{
   name ?: string;
-  products?: ProductsModel[];
+  products!: ProductsModel[];
   size!: number;
+
+  itemsPerPage: number = 10;
+  currentPage: number = 1;
+  page?: number;
 
   navigateTo(productName: string){
     const productCat = this.productsService.getItem(productName).category;

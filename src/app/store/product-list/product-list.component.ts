@@ -14,7 +14,10 @@ export class ProductListComponent implements OnInit{
     private productsService: ProductsService,
     private route: Router){}
   name?: string;
-  products?: ProductsModel[];
+  products!: ProductsModel[];
+  itemsPerPage: number = 6;
+  currentPage: number = 1;
+  page?: number;
 
   navigateTo(productName: string){
     this.route.navigate([productName],{relativeTo: this.activatedRoute});
@@ -23,7 +26,6 @@ export class ProductListComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) =>{
       this.name = params['name'];
-      console.log('params: '+this.name +', is category: '+ this.productsService.isCategory(this.name!))
       if(!this.productsService.isCategory(this.name!)){
         this.route.navigate(['notFound'],{relativeTo: this.activatedRoute.parent});
 

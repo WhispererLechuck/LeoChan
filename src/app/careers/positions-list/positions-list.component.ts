@@ -14,14 +14,12 @@ export class PositionsListComponent implements OnInit {
   jobList!: positionModel[];
   itemsPerPage: number = 10;
   currentPage: number = 1;
-  page?: number;
+  page!: number;
   locationStrings: string [] =[];
 
   ngOnInit(): void {
     this.jobList = this.careersService.getPositions();
     this.locationSetter();
-
-    console.log(this.locationStrings);
   }
 
   navigateTo(id: number){
@@ -45,7 +43,6 @@ export class PositionsListComponent implements OnInit {
       })
      this.locationStrings.push(locationStr);
     });
-    console.log(this.locationStrings)
   }
 
   constructor(
