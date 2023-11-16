@@ -1,13 +1,50 @@
-<div class="container height ">
-    <div class="row d-flex align-items-center  ">
-        <div class="col-5">    
-            <img src="https://th.bing.com/th/id/OIG.rs4LC4idPw4362ZoWUrZ?pid=ImgGn" alt="" style="max-width: 20vw; border-radius: 10px;" class="img-fluid img-portrait">
+
+
+
+<div [ngSwitch]="screenSize">
+    <div *ngSwitchCase="'mobile'">
+        <div class="row">
+            <div class="col-12">
+                <app-typing></app-typing>
+            </div>
         </div>
-        <div class="col-7">
-            <app-typing></app-typing>
+        <div class="row d-flex justify-content-center">
+            
+            <div class="col-6 ">    
+                <img src="https://th.bing.com/th/id/OIG.rs4LC4idPw4362ZoWUrZ?pid=ImgGn" alt="" style=" border-radius: 10px;" class="img-fluid img-portrait">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-8 ">
+                <p>
+                    Welcome to LeoChan, please click here to start shopping.
+                </p>
+                <div class="text-center">
+                    <button class="btn btn-outline-leo" routerLink="/store">Start shopping!</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="container p-3">
-</div>
+    <div *ngSwitchDefault>
+        <div class="container height ">
+            <div class="row d-flex align-items-center  ">
+                <div class="col-5">    
+                    <img src="https://th.bing.com/th/id/OIG.rs4LC4idPw4362ZoWUrZ?pid=ImgGn" alt="" style="max-width: 20vw; border-radius: 10px;" class="img-fluid img-portrait">
+                </div>
+                <div class="col-7 typing">
+                    <app-typing ></app-typing>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-8 ">
+                    <p>
+                        Welcome to LeoChan, please click here to start shopping.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn btn-outline-leo" routerLink="/store">Start shopping!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

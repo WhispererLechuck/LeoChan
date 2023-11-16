@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ScreenSizeService } from 'src/app/shared/screen-size/screen-size.service';
 
 interface Categorie{
   name:string,
@@ -13,6 +15,21 @@ interface Categorie{
   styleUrls: ['./store-categories.component.css']
 })
 export class StoreCategoriesComponent {
+
+  @Output() productEmit = new EventEmitter<void>;
+
+
+  navigateTo(child: Categorie){
+    this.productEmit.emit();
+    this.router.navigate([child.router],{relativeTo: this.activatedRoute});
+  }
+
+  constructor(
+    private router: Router,
+    private screenSizeService: ScreenSizeService,
+    private activatedRoute: ActivatedRoute
+  ){}
+
   categories: Categorie[] = [
     {
       name: 'Fresh Food',
@@ -78,4 +95,16 @@ export class StoreCategoriesComponent {
     },
     
 ]
+
+screenSize!: string;
+  productFlag: boolean = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenSize = this.screenSizeService.getScreenSize(); 
+  }
+
+  ngOnInit(): void {
+    this.screenSize = this.screenSizeService.getScreenSize();
+  }
 }

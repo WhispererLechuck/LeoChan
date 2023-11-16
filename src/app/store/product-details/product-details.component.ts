@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { ProductsModel } from 'src/app/shared/products/producs.model';
@@ -9,10 +9,10 @@ import { ProductsService } from 'src/app/shared/products/products.service';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit{
+export class ProductDetailsComponent implements OnInit, AfterViewInit{
 
   product!: ProductsModel;
-  @ViewChild('num') num !: ElementRef;
+  @ViewChild('num') num ?: ElementRef;
   value!: any;
   errorMessage?: string;
   popUpFlag: boolean = false;
@@ -53,6 +53,9 @@ export class ProductDetailsComponent implements OnInit{
       this.product = this.productsService.getItem(productName);
         });
         this.product.imagePath = 'https://th.bing.com/th/id/OIG.5wfy6w_logjuUqG.QnfO?pid=ImgGn&w=1024&h=1024&rs=1';
-
+        ;
+    }
+    ngAfterViewInit(): void {
+      this.num?.nativeElement.focus();
     }
 }

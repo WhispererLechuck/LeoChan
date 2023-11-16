@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 
 import { CareersService } from '../careers.service';
 import { positionModel } from '../position.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ScreenSizeService } from 'src/app/shared/screen-size/screen-size.service';
 
 @Component({
   selector: 'app-positions-list',
@@ -10,6 +11,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./positions-list.component.css']
 })
 export class PositionsListComponent implements OnInit {
+
+  screenSize!: string;
+  @Output() job = new EventEmitter<number>;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenSize = this.screenSizeService.getScreenSize(); 
+  }
+
 
   jobList!: positionModel[];
   itemsPerPage: number = 10;
@@ -20,10 +30,13 @@ export class PositionsListComponent implements OnInit {
   ngOnInit(): void {
     this.jobList = this.careersService.getPositions();
     this.locationSetter();
+
+    this.screenSize = this.screenSizeService.getScreenSize();
   }
 
   navigateTo(id: number){
     if(this.careersService.getIndex(id) != -1){
+      this.job.emit(id);
      this.router.navigate([id],{relativeTo: this.activatedRoute})
     } else {
       this.router.navigate(['notFound'],{relativeTo: this.activatedRoute})     
@@ -49,5 +62,7 @@ export class PositionsListComponent implements OnInit {
     private careersService: CareersService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private screenSizeService: ScreenSizeService,
+
   ){}
 }

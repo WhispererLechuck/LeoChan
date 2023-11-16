@@ -1,8 +1,21 @@
-<div class="row">
-    <div class="col-md-4">
-        <app-store-categories></app-store-categories>
+
+
+<div [ngSwitch]="screenSize">
+    <div *ngSwitchCase="'mobile'">
+        <app-store-categories (productEmit)="setter()" *ngIf="!productFlag"></app-store-categories >
+            <div class="container" *ngIf="productFlag">
+                <button class="btn btn-sm" (click)="goBack()">Back</button>
+                 <router-outlet ></router-outlet>
+            </div>
     </div>
-    <div class="col-md-8">
-        <router-outlet ></router-outlet>
+    <div *ngSwitchDefault>
+        <div class="row">
+            <div class="col-md-4">
+                <app-store-categories></app-store-categories>
+            </div>
+            <div class="col-md-8">
+                <router-outlet ></router-outlet>
+            </div>
+        </div>
     </div>
-</div>
+  </div>

@@ -1,13 +1,39 @@
-<div class="container component-container">
-  <div class="content"></div>
-    <ul class="list-group list-group-flush mt-3">
-        <li class="list-group-item list-group-item-action" style="cursor: pointer;" (click)="navigateTo(position.id)" *ngFor="let position of jobList | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
-           <span>{{position.name}}</span>
-          <p class="location text-leo"><i class="bi bi-geo-alt text-dark"></i> <span>{{position.location.join(' - ')}}</span> </p>
-        </li>
-      </ul>
 
-</div>
-<div class="has-text-left pagination-container" >
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+
+
+
+
+<div [ngSwitch]="screenSize">
+  <div *ngSwitchCase="'mobile'">
+    <div class="container component-container">
+      <div class="content"></div>
+        <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item list-group-item-action" style="cursor: pointer;" (click)="navigateTo(position.id)" *ngFor="let position of jobList | paginate: { itemsPerPage: 8, currentPage: page };let i = index">
+               <span>{{position.name}}</span>
+              <p class="location text-leo"><i class="bi bi-geo-alt text-dark"></i> <span>{{position.location.join(' - ')}}</span> </p>
+            </li>
+          </ul>
+    
+    </div>
+    <div class="has-text-left pagination-container" >
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+
+  </div>
+  <div *ngSwitchDefault>
+    <div class="container component-container">
+      <div class="content"></div>
+        <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item list-group-item-action" style="cursor: pointer;" (click)="navigateTo(position.id)" *ngFor="let position of jobList | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
+               <span>{{position.name}}</span>
+              <p class="location text-leo"><i class="bi bi-geo-alt text-dark"></i> <span>{{position.location.join(' - ')}}</span> </p>
+            </li>
+          </ul>
+    
+    </div>
+    <div class="has-text-left pagination-container" >
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
 </div>

@@ -1,26 +1,58 @@
-<div class="mt-3">
 
-    <div class="accordion accordion-flush" id="accordionFlushExample">
+
+<div [ngSwitch]="screenSize">
+    <div *ngSwitchCase="'mobile'">
+        <div class="mt-3">
+
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                
+                <div class="accordion-item" *ngFor="let category of categories; let i = index;">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse'+i" aria-expanded="false" [attr.aria-controls]="'flush-collapse'+i">
+                        {{category.name}}
+                    </button>
+                    </h2>
+                    <div id="flush-collapse{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">           
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let child of category.children" class="list-group-item" routerLink="{{child.router}}" style="cursor: pointer;">
+                                <span (click)="navigateTo(child)">
+                                    {{child.name}}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
         
-        <div class="accordion-item" *ngFor="let category of categories; let i = index;">
-            <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse'+i" aria-expanded="false" [attr.aria-controls]="'flush-collapse'+i">
-                {{category.name}}
-            </button>
-            </h2>
-            <div id="flush-collapse{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">           
-                <ul class="list-group list-group-flush">
-                    <li *ngFor="let child of category.children" class="list-group-item" routerLink="{{child.router}}" style="cursor: pointer;">
-                        <span >
-                            {{child.name}}
-                        </span>
-                    </li>
-                </ul>
-            </div>
             </div>
         </div>
-
-        <!-- Item Separator -->
     </div>
-</div>
+    <div *ngSwitchDefault>
+        <div class="mt-3">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                
+                <div class="accordion-item" *ngFor="let category of categories; let i = index;">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse'+i" aria-expanded="false" [attr.aria-controls]="'flush-collapse'+i">
+                        {{category.name}}
+                    </button>
+                    </h2>
+                    <div id="flush-collapse{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">           
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let child of category.children" class="list-group-item" routerLink="{{child.router}}" style="cursor: pointer;">
+                                <span >
+                                    {{child.name}}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+        
+                <!-- Item Separator -->
+            </div>
+        </div>
+    </div>
+  </div>

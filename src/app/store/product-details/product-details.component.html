@@ -16,7 +16,7 @@
             <input #num type="number" class="form-control w-25 my-2" min="0" [(ngModel)]="value" max="{{product.amount}}">
             </div>
   
-            <button class="btn btn-leo" (click)="addItem()">Add Cart</button>
+            <button class="btn btn-leo mb-2" (click)="addItem()">Add Cart</button>
             <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeError()"></button>
             </div> 

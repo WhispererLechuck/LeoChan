@@ -1,11 +1,25 @@
 
-<div class="container">
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <app-positions-list></app-positions-list >
-        </div>
-        <div class="col-md-8">
-            <router-outlet ></router-outlet>
+
+
+<div [ngSwitch]="screenSize">
+    <div *ngSwitchCase="'mobile'">
+        <app-positions-list (job)="setter($event)" *ngIf="!productId"></app-positions-list >
+            <div class="container" *ngIf="productId">
+                <button class="btn btn-sm" (click)="goBack()">Back</button>
+                 <router-outlet ></router-outlet>
+            </div>
+        
+    </div>
+    <div *ngSwitchDefault>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <app-positions-list></app-positions-list >
+                </div>
+                <div class="col-md-8">
+                    <router-outlet ></router-outlet>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+  </div>

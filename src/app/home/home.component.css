@@ -1,3 +1,7 @@
 .height{
     height: 80vh;
 }
+.typing {
+    font-family: 'Sometype Mono', monospace;
+    font-weight: 400;
+}

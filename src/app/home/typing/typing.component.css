@@ -7,7 +7,7 @@
     color: #ec8f24;
     letter-spacing: 2px;
     display: inline-block;
-    font-size: calc(17px + 2vw);
+    font-size: calc(15px + 1.5vw);
     margin-top: 1vh;
   }
 
@@ -17,7 +17,7 @@
     letter-spacing: 2px;
     display: inline-block;
 
-    font-size: calc(17px + 1vw);
+    font-size: calc(15px + 1vw);
 }
 
 #cursor {

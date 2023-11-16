@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary main">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="">
+      <a class="navbar-brand logo" routerLink="" >
         <img src="https://th.bing.com/th/id/OIG.dXL7Qj.3RvUMr04k_uOF?pid=ImgGn" alt="Bootstrap" width="80" height="80">
 
         Leochan</a>
@@ -9,19 +9,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
        
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-lighter">
             <li class="nav-item">
-                <a class="nav-link active" routerLink="">Home</a>
+                <a class="nav-link section" routerLink="" routerLinkActive="isActive" [routerLinkActiveOptions]="{ exact: true }">Home</a>
               </li>
     
           <li class="nav-item">
-            <a class="nav-link active" routerLink="store">Store</a>
+            <a class="nav-link section" routerLink="store" routerLinkActive="isActive">Store</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="careers">Careers</a>
+            <a class="nav-link section" routerLink="careers" routerLinkActive="isActive">Careers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " routerLink="about">About</a>
+            <a class="nav-link section" routerLink="about" routerLinkActive="isActive">About</a>
           </li>
         </ul>
         <form class="d-flex" role="search">          
