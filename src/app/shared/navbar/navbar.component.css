@@ -30,3 +30,17 @@
     color: orange;
     font-weight:400;
   }
+  .form-control-sm{
+    border: 2px solid rgb(238, 186, 54);
+    min-width: 20%;
+    width:  23vw;
+}
+
+  .form-control-sm:focus {
+    outline: 1px solid rgb(255, 213, 47); 
+  }
+  .logo-sm{
+    font-family:'Caveat', cursive;
+    font-size:large;
+}
+

@@ -4,7 +4,7 @@
     <div *ngSwitchCase="'mobile'">
         <app-store-categories (productEmit)="setter()" *ngIf="!productFlag"></app-store-categories >
             <div class="container" *ngIf="productFlag">
-                <button class="btn btn-sm" (click)="goBack()">Back</button>
+                <button class="btn btn-sm fs-5" (click)="goBack()">Back</button>
                  <router-outlet ></router-outlet>
             </div>
     </div>

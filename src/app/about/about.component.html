@@ -1,37 +1,122 @@
 
 <div class="container"></div>
-
-
-
-Leochan Supermarket: Where Every Purchase Supports a Brighter Future
-
-
-<div class="container text-center">
-    <div class="row d-flex justify-content-center">
-        <div class="col-8 ">
-            <h1>Introducing Leochan Supermarket: Where Quality Meets Care</h1>
-
-            At Leochan Supermarket, we redefine the grocery shopping experience. Nestled in the heart of the community, Leochan stands as a beacon of quality, care, and community well-being. Unlike other supermarkets, our dedication goes beyond providing your everyday necessities; we prioritize the quality of our products and the welfare of our customers.
+<div [ngSwitch]="screenSize">
+  <div *ngSwitchCase="'mobile'">
+    <div class="row d-flex justify-content-center" >
+      <div class="col-8">
+        <app-app-carousel></app-app-carousel>
+      </div>
+      <hr class="my-4">
+      <div class="col-8 mb-3">
+        <div class="">
+          <h3>
+            Leochan Supermarket: Where Every Purchase Supports a Brighter Future</h3>
+          <p>
+            Feel free to contact us in case there is any topic you would raise.
+          </p>
         </div>
- </div>
-    <div class="row mt-2">
-      <div class="col p-2">
-        <h3>Quality You Can Trust</h3>
-
-        At Leochan, we believe that the key to a healthy life starts with the food you eat. That's why we painstakingly source our products from trusted local farmers and renowned international suppliers. Every apple, every loaf of bread, and every cut of meat is carefully inspected to meet our rigorous quality standards. We are committed to ensuring that only the freshest, safest, and most delicious items find their way to our shelves.</div>
-      <div class="col p-2">
-        <h3>        
-            Caring for Your Well-being
-        </h3>
-        
-        Your health is our priority. That's why Leochan Supermarket offers a wide range of organic, gluten-free, and locally sourced products. We understand the diverse dietary needs of our community, and we take pride in catering to every taste and preference. Our knowledgeable staff is always ready to assist you, ensuring that your shopping experience is not just convenient but also enjoyable.</div>
-      <div class="col p-2">
-        <h3>Giving Back to the Community</h3>
-
-        Unlike other supermarkets, we believe that profits should be reinvested into the community, not sent to bureaucratic entities like the Ministry of Economy. At Leochan, a significant portion of our profits is dedicated to community projects, education initiatives, and environmental conservation programs. We are devoted to creating a sustainable future for everyone, one where the community thrives together.</div>
-      <div class="col-12">
-        <h2>Join the Leochan Family</h2>
-
-        Leochan Supermarket is more than just a store; it's a family, a community, and a shared commitment to quality living. We invite you to experience the Leochan difference. Come and explore our aisles filled with fresh produce, gourmet delicacies, and everyday essentials. Join us in our mission to celebrate quality, care, and community. Together, let's make a difference, one mindful choice at a time.</div>
+        <h4>Contact:</h4>
+        <div class=""><p>Email: <span>leo@leochan.pl</span></p></div>
+        <div class="fs-3">
+          <i class="bi bi-envelope-heart-fill mx-1 icon"></i>
+          <i class="bi bi-twitter-x mx-1 icon" (click)="rickTriggers()"></i>
+          <a href="https://github.com/WhispererLechuck" target="_blank"><i class="bi bi-github mx-1 icon"></i></a> 
+          <i class="bi bi-facebook mx-1 icon" (click)="rickTriggers()"></i>
+        </div>
+        <div class="rickContainer mt-2 " *ngIf="rickFlag">
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=kJ5TGpusoxzuIZ4c?&mute=0&autoplay=1"  allow='autoplay' allowfullscreen></iframe>
+            <p class="mt-3"> Sorry but are not a real supermarket. Therefore, this option is not possible.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div *ngSwitchDefault>
+    <div class="row d-flex justify-content-center align-items-center justify-content-evenly" >
+      <div class="col-7 col-xxl-5">
+        <app-app-carousel></app-app-carousel>
+      </div>
+      <div class="col-3 ">
+        <div class="">
+          <h4>
+            Leochan Supermarket: Where Every Purchase Supports a Brighter Future
+          </h4>
+          <p>
+            Feel free to contact us in case there is any topic you would raise.
+          </p>
+        </div>
+        <h4>Contact:</h4>
+        <div class=""><p>Email: <span>leo@leochan.pl</span></p></div>
+        <div class="fs-3 ">
+          <i class="bi bi-envelope-heart-fill mx-1 icon"></i>
+          <i class="bi bi-twitter-x mx-1 icon" (click)="rickTriggers()"></i>
+          <a href="https://github.com/WhispererLechuck" target="_blank"><i class="bi bi-github mx-1 icon"></i></a> 
+          <i class="bi bi-facebook mx-1 icon" (click)="rickTriggers()"></i>
+        </div>
+        <div class="rickContainer mt-2 " *ngIf="rickFlag">
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=kJ5TGpusoxzuIZ4c?&mute=0&autoplay=1"  allow='autoplay' allowfullscreen></iframe>
+            <p class="mt-3"> Sorry but are not a real supermarket. Therefore, this option is not possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+  <!-- <div id="carouselExampleCaptions" style="" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="img-fluid" src="https://img.freepik.com/free-photo/portrait-lion-ai-generated_268835-4278.jpg?w=1800&t=st=1700487775~exp=1700488375~hmac=7f1bb416676febc03da443a00d86a8ed443e972b72889b6833de8614bc7eda4a" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="img-fluid" src="https://img.freepik.com/free-photo/portrait-lion-ai-generated_268835-4278.jpg?w=1800&t=st=1700487775~exp=1700488375~hmac=7f1bb416676febc03da443a00d86a8ed443e972b72889b6833de8614bc7eda4a" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="img-fluid" src="https://img.freepik.com/free-photo/portrait-lion-ai-generated_268835-4278.jpg?w=1800&t=st=1700487775~exp=1700488375~hmac=7f1bb416676febc03da443a00d86a8ed443e972b72889b6833de8614bc7eda4a" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="img-fluid" src="https://img.freepik.com/free-photo/portrait-lion-ai-generated_268835-4278.jpg?w=1800&t=st=1700487775~exp=1700488375~hmac=7f1bb416676febc03da443a00d86a8ed443e972b72889b6833de8614bc7eda4a" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Fourth slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
+

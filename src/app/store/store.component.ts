@@ -18,6 +18,9 @@ export class StoreComponent implements OnInit{
 
   ngOnInit(): void {
     this.screenSize = this.screenSizeService.getScreenSize();
+    if(this.router.url.split('/').pop()!='store'){
+      this.productFlag = true;
+    }
   }
 
   setter(){

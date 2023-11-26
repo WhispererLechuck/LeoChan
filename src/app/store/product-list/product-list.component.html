@@ -1,14 +1,11 @@
-<!-- <p>product-list works!</p>
 
-{{name}}
-
-<hr>
- -->
-<div class="disp mt-3">
+<div class=" mt-3">
+    <h3 class="fw-light text-leo" style="letter-spacing: 3px;">{{name}}</h3>
+    <hr>
     <div class="row text-center mb-2">
-        <div class="col-4 mb-2" *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index" style="cursor: pointer;">
+        <div  [ngClass]="screenSize==='mobile' ? 'col-6':'col-4'" class="mb-2" *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index" style="cursor: pointer;">
             <div (click)="navigateTo(product.name)">   
-                <img src="{{product.imagePath}}" class="img-fluid rounded" style="max-width: 12vw;">
+                <img src="{{product.imagePath}}" class="img-fluid rounded" >
                 <div class="mt-1">
                     <span class="fw-medium">{{product.name}}</span>
                     <br>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { AuthService, authResponseData } from './auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, AfterViewInit {
 
   @ViewChild('clickButton', { read: ElementRef, static:false }) clickButton!: ElementRef;
   authO?: Observable<authResponseData>;
@@ -18,7 +18,7 @@ export class AuthComponent implements OnInit {
   error: string = '';
   isLoading: boolean = false;
   authForm!: FormGroup;
-  isAuthMode: boolean = false;
+  isAuthMode: boolean = true;
   actualMode: string = (!this.isAuthMode) ? 'Sign Up' : 'Login';
 
   clearError(){
@@ -86,6 +86,14 @@ export class AuthComponent implements OnInit {
       'email' : new FormControl('puma23@puma.com',[Validators.required, Validators.email],),
       'password' : new FormControl('puma23@puma.com', [Validators.minLength(6),Validators.required],)
     })
+  }
+  ngAfterViewInit(): void {
+    if (this.actualMode === 'Login') {
+      
+      this.clickButton.nativeElement.classList.remove('btn-primary');
+      this.clickButton.nativeElement.classList.add('btn-success');
+
+    }
   }
 
   constructor(

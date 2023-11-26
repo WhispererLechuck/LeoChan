@@ -1,0 +1,11 @@
+.icon{
+    transition: linear .4s;
+    cursor: pointer;
+}
+.icon:hover{
+    color: orange;
+    text-shadow: rgb(236, 213, 124) 1px 0 3px;}
+a{
+    text-decoration: none;
+    color: black;
+}

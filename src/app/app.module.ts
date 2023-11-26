@@ -27,6 +27,7 @@ import { PositionDetailComponent } from './careers/position-detail/position-deta
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TypingComponent } from './home/typing/typing.component';
 import { PopUpApplyComponent } from './careers/pop-up-apply/pop-up-apply.component';
+import { AppCarouselComponent } from './about/app-carousel/app-carousel.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PopUpApplyComponent } from './careers/pop-up-apply/pop-up-apply.compone
     PositionDetailComponent,
     TypingComponent,
     PopUpApplyComponent,
+    AppCarouselComponent,
     
   ],
   imports: [

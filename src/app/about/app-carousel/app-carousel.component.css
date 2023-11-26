@@ -1,0 +1,25 @@
+img {
+    object-fit: fill;
+    max-width: 100%;
+  }
+  .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.525);
+    text-shadow: #FC0 1px 0 10px;
+    border-radius: 3px;
+    /* display: none !important; */
+    font-size: 0.8rem;
+  }
+  .carousel-inner + .carousel-caption:hover{
+    /* display: block !important; */
+  }
+  
+  span {
+    background-color: rgba(0, 0, 0, 0.525);
+    border-radius: 3px;
+  }
+  /* .col-lg-5 #carouselExampleCaptions{
+    width: 50vw !important;
+  }
+  .col-sm-12 #carouselExampleCaptions{
+    width: 80vw !important;
+  } */

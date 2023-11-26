@@ -8,7 +8,7 @@
     </div>
 
     <div *ngIf="products.length>0" class="row text-center mt-3">
-        <div class="col-2" *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: page }; let i = index ">
+        <div [ngClass]="screenSize==='mobile' ? 'col-6':'col-2'" class="mb-2" *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index ">
             <div (click)="navigateTo(product.name)">   
                 <img src="{{product.imagePath}}" class="img-fluid rounded">
                 {{product.name}}

@@ -1,38 +1,86 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary main">
-    <div class="container-fluid">
-      <a class="navbar-brand logo" routerLink="" >
-        <img src="https://th.bing.com/th/id/OIG.dXL7Qj.3RvUMr04k_uOF?pid=ImgGn" alt="Bootstrap" width="80" height="80">
 
-        Leochan</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-       
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-lighter">
+<div [ngSwitch]="screenSize">
+  <div *ngSwitchCase="'mobile'">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary main">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" routerLink="" >
+          <img src="https://th.bing.com/th/id/OIG.dXL7Qj.3RvUMr04k_uOF?pid=ImgGn" alt="Bootstrap" width="80" height="80">
+        </a>
+          <form class="d-flex" role="search">          
+            <input class="form-control-sm me-2" [ngClass]="{'border border-2 border-danger':flagInput}" (keyup.enter)="onEnter()" name="search" [(ngModel)]="search"  placeholder="Search" aria-label="Search">
+            <button (click)="navitateProfile()" class="btn btn-outline-warning me-2" type="button">
+              <i class="bi bi-person-circle"></i>
+            </button>
+            <button class="btn btn-outline-success" type="button" routerLink="cart">
+              <i class="bi bi-cart"></i>
+            </button> 
+          </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+         
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-lighter">
+              <li class="nav-item">
+                  <a class="nav-link section" routerLink="" routerLinkActive="isActive" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li>
+      
             <li class="nav-item">
-                <a class="nav-link section" routerLink="" routerLinkActive="isActive" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-              </li>
-    
-          <li class="nav-item">
-            <a class="nav-link section" routerLink="store" routerLinkActive="isActive">Store</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link section" routerLink="careers" routerLinkActive="isActive">Careers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link section" routerLink="about" routerLinkActive="isActive">About</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">          
-          <input class="form-control me-2" [ngClass]="{'border border-2 border-danger':flagInput}" (keyup.enter)="onEnter()" name="search" [(ngModel)]="search"  placeholder="Search" aria-label="Search">
-          <button (click)="navitateProfile()" class="btn btn-outline-warning me-2" type="button">
-            <i class="bi bi-person-circle"></i>
-          </button>
-          <button class="btn btn-outline-success" type="button" routerLink="cart">
-            <i class="bi bi-cart"></i>
-          </button> 
-        </form>
+              <a class="nav-link section" routerLink="store" routerLinkActive="isActive">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link section" routerLink="careers" routerLinkActive="isActive">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link section" routerLink="about" routerLinkActive="isActive">About</a>
+            </li>
+          </ul>
+
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  
+  </div>
+  <div *ngSwitchDefault>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary main">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" routerLink="" >
+          <img src="https://th.bing.com/th/id/OIG.dXL7Qj.3RvUMr04k_uOF?pid=ImgGn" alt="Bootstrap" width="80" height="80">
+  
+          Leochan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+         
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-lighter">
+              <li class="nav-item">
+                  <a class="nav-link section" routerLink="" routerLinkActive="isActive" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li>
+      
+            <li class="nav-item">
+              <a class="nav-link section" routerLink="store" routerLinkActive="isActive">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link section" routerLink="careers" routerLinkActive="isActive">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link section" routerLink="about" routerLinkActive="isActive">About</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">          
+            <input class="form-control me-2" [ngClass]="{'border border-2 border-danger':flagInput}" (keyup.enter)="onEnter()" name="search" [(ngModel)]="search"  placeholder="Search" aria-label="Search">
+            <button (click)="navitateProfile()" class="btn btn-outline-warning me-2" type="button">
+              <i class="bi bi-person-circle"></i>
+            </button>
+            <button class="btn btn-outline-success" type="button" routerLink="cart">
+              <i class="bi bi-cart"></i>
+            </button> 
+          </form>
+        </div>
+      </div>
+    </nav>
+  
+  </div>
+</div>

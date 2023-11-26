@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '../products/products.service';
 import { ProductsModel } from '../products/producs.model';
+import { ScreenSizeService } from '../screen-size/screen-size.service';
 
 @Component({
   selector: 'app-navbar',
@@ -36,9 +37,21 @@ export class NavbarComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    
+    this.screenSize = this.screenSizeService.getScreenSize();
+
   }
   constructor(
     private router: Router,
-    private productsService: ProductsService) {}
+    private productsService: ProductsService,
+    private screenSizeService: ScreenSizeService,
+    ) {}
+
+    screenSize!: string;
+    productFlag: boolean = false;
+  
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+      this.screenSize = this.screenSizeService.getScreenSize(); 
+    }
+  
 }

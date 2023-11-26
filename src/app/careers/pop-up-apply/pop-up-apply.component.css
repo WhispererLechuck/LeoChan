@@ -1,22 +1,53 @@
-.background{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(248, 248, 248, 0.7);
-    z-index: 50;
+@media only screen and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    .background{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: rgba(248, 248, 248, 0.7);
+        z-index: 50;
+    }
+    .popup{
+        position: fixed;
+        background-color: #e69d31;
+        left: 10vw;
+        top: 30vh;
+        width: 90vw;
+        z-index: 100;
+        padding: 25px;
+        border-radius: 3px;
+        box-shadow: #0c0c0b 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    .popupActions{
+        text-align: right;
+    }
 }
-.popup{
-    position: fixed;
-    background-color: rgb(230, 157, 49);
-    left: 20vw;
-    top: 30vh;
-    width: 60vw;
-    z-index: 100;
-    padding: 25px;
-    border-radius: 3px;
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    .background{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: rgba(248, 248, 248, 0.7);
+        z-index: 50;
+    }
+    .popup{
+        position: fixed;
+        background-color: rgb(230, 157, 49);
+        left: 20vw;
+        top: 30vh;
+        width: 60vw;
+        z-index: 100;
+        padding: 25px;
+        border-radius: 3px;
+        box-shadow: #0c0c0b 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    }
+    .popupActions{
+        text-align: right;
+    }
 }
-.popupActions{
-    text-align: right;
-}
+
