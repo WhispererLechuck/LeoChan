@@ -23,8 +23,11 @@ export class CartComponent implements OnInit, OnDestroy{
     totalCartValue: number = 0;
     errorMessage?: string;
 
+    emptyCart!: boolean;
+
 
   cartActual : ProductsModel[] =[];
+  
   private cartChangeSub !: Subscription;
 
   closeError() {
@@ -50,20 +53,28 @@ export class CartComponent implements OnInit, OnDestroy{
 
     }
   }
-
+  
   deleteProd(productName: string){
     this.cartService.deleteProduct(productName);
+    this.emptyCart = this.cartService.checkChart();
   }
   updatePrice(){
     this.totalCartValue = 0;
     this.totalCartValue = this.cartService.getPrice();
   }
+ 
+
   navigateTo(){
     this.router.navigate(['checkout'],{relativeTo: this.activatedRoute})
+  }
+  generateOptions(name: string): number[] {
+
+    return Array.from({ length: this.productService.getItem(name).amount }, (_, index) => index + 1);
   }
 
   ngOnInit(): void {
     this.cartActual = this.cartService.getCart();
+    this.emptyCart = this.cartService.checkChart();
     if(this.cartActual.length>0){
       this.updatePrice();
     }

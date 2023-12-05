@@ -31,6 +31,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit{
     }
 
     addItem(){
+      this.closeError();
       if(this.value>0 || this.value != undefined){
         if(this.cartService.checkAmount(this.product.name,this.value) && this.value > 0){
           this.cartService.addProduct(this.product,this.value);

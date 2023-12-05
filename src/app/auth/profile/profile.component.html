@@ -1,9 +1,10 @@
 <div class="container">
-    <h1>Welcome</h1>
-<hr>
-{{localUserJson.email}}
+    <h1 class="fw-light text-leo">Welcome</h1>
+<hr style="color: black;">
+
+<span class="text-dark">{{localUserJson.email}}</span>
 
 <div class="m-3">
-    <button class="btn btn-outline-secondary" (click)="logout()">Logout <i class="bi bi-box-arrow-left"></i></button>
+    <button class="btn btn-outline-danger" (click)="logout()">Logout <i class="bi bi-box-arrow-left"></i></button>
 </div>
 </div>

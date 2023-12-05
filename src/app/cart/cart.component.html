@@ -1,10 +1,11 @@
 
 
-<div class="container" >
-    <table class="table table-hover">
+<div class="container mt-2" >
+  <h3 class="text-leo fw-light">Cart</h3>
+  <hr>
+    <!-- <table class="table table-hover" style="max-width: 90vw;">
         <thead>
           <tr>
-            <!-- <th scope="col">#</th> -->
             <th scope="col">Product</th>
             <th scope="col">Amount</th>
             <th scope="col">Price</th>
@@ -13,22 +14,46 @@
         </thead>
         <tbody>
           <tr *ngFor="let product of cartActual; let i = index">
-            <!-- <th scope="row">{{i}}</th> -->
             <td>{{product.name}}</td>
             <td>{{product.amount}}</td>
             <td>{{product.price}}€</td>
             <td>{{(product.amount*product.price).toFixed(2)}}€</td>
-            <td><input #value min="0" [(ngModel)]="inputValues[i]" type="number" value="product.amount" class=" form-control-sm"></td>
-            <td><button class="btn" (click)="updateProd(product,inputValues[i])">update</button></td>
-            <td><button class="btn" (click)="deleteProd(product.name)">Delete</button></td>
+            <td>        
+              <select style="width: 35%; font-size: small;" class="form-select" aria-label="Default select example" (ngModelChange)="updateProd(product,$event)" [(ngModel)]="product.amount">
+                <option  *ngFor="let val of generateOptions(product.name)" value={{val}}>{{val}}</option>
+              </select>
+            </td>
+            <td><button class="btn btn-outline-leo" (click)="deleteProd(product.name)"><i class="bi bi-cart-x-fill"></i></button></td>
           </tr>
           <tr>
             <td> Subtotal: {{totalCartValue.toFixed(2)}}€
             </td>
           </tr>
         </tbody>
-      </table>
-    
+      </table> -->
+      <div class="container my-2">
+        <div class="row"  *ngFor="let product of cartActual; let i = index">
+          <div class="col-9" style="display: inline-flex;">
+            <div class="mx-2">
+              <img class="img-fluid" style="max-height: 75px;" src="{{product.imagePath}}" alt=""></div>
+            <div class="" style="display: inline-grid; align-items: center;">
+              <span class="fw-light">{{product.name}}</span>
+              <span>{{(product.amount*product.price).toFixed(2)}}€</span>
+            </div>
+          </div>
+          <div class="col-3" style="display: inline-flex;justify-content: space-evenly;align-items: center;">
+              <select style="width: 35%; font-size: small;" class="form-select" aria-label="Default select example" (ngModelChange)="updateProd(product,$event)" [(ngModel)]="product.amount">
+                <option  *ngFor="let val of generateOptions(product.name)" value={{val}}>{{val}}</option>
+            </select>
+            <button class="btn btn-outline-leo" (click)="deleteProd(product.name)"><i class="bi bi-cart-x-fill"></i></button>
+          </div>
+          <hr class="text-secondary opacity-25 my-2">
+        </div>
+        <tr class="my-3">
+          <td class="fw-light"> Subtotal: {{totalCartValue.toFixed(2)}}€
+          </td>
+        </tr>
+      </div>
 </div>
 
         <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
@@ -36,8 +61,8 @@
     
         </div>
 
-<div>
-    <button class="btn btn-outline-leo m-1" (click)="navigateTo()">Checkout</button>
+<div class="mb-3">
+    <button class="btn btn-outline-leo m-1" (click)="navigateTo()" [disabled]="emptyCart">Checkout</button>
     <button class="btn btn-outline-secondary" (click)="goBack()">Keep Shopping</button>
 </div>
 

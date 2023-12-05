@@ -1,1 +1,60 @@
-<p>checkout works!</p>
+<div class="container mt-2">
+    <h3 class="text-leo fw-light">Checkout</h3>
+    <hr>
+    <div class="backBut fw-lighter">    
+        <span (click)="goBack()">back</span>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="container my-2">
+                <div class="row"  *ngFor="let product of cartActual; let i = index">
+                  <div class="col-9" style="display: inline-flex;">
+                    <div class="mx-2">
+                      <img class="img-fluid" style="max-height: 75px;" src="{{product.imagePath}}" alt=""></div>
+                    <div class="" style="display: inline-grid; align-items: center;">
+                      <span class="fw-light">{{product.name}}</span>
+                      <span>{{(product.amount*product.price).toFixed(2)}}€</span>
+                    </div>
+                  </div>
+                  <div class="col-3" style="display: inline-flex;justify-content: space-evenly;align-items:start;">
+                    <span class="fw-light">Amount: {{product.amount}}</span>                
+                </div>
+                <hr class="text-secondary opacity-25 my-2">
+              </div>
+        </div>
+
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <ul class="list-group list-group-flush fw-light">
+              <li class="list-group-item">Subtotal: {{totalPrice.toFixed(2)}}€</li>
+              <li class="list-group-item">Shipping costs: {{shippingCost}}€</li>
+              <li class="list-group-item">Delivery location: 
+                <select [(ngModel)]="location" (ngModelChange)="onLocationChange()" class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
+                    <option *ngFor="let c of locations" [ngValue]="c">{{c}}</option>
+                  </select>
+
+              </li>
+              <li class="list-group-item fw-medium">Total: {{(totalPrice+shippingCost).toFixed(2)}}€</li>
+            </ul>
+          </div>
+          <div class="card mt-3" >
+            <div class="card-header">
+              Payment method
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let payment of paymentMethod; let i = index">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="{{i}}">
+                       <span [innerHTML]="getSafeSvg(payment.icon)"></span><span class="fw-light fs-5"> | {{payment.name}}</span>
+                    </label>
+                  </div>
+              </li>
+            </ul>
+          </div>
+    </div>
+    <div class="row">
+        <!-- AQUI BOTONES DE PAGO OBVIAMENTE FALSOS -->
+    </div>
+</div> 

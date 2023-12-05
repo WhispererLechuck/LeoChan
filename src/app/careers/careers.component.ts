@@ -31,9 +31,8 @@ this.productId = undefined;
   ngOnInit(): void {
     this.screenSize = this.screenSizeService.getScreenSize();
     
-    console.log(this.router.url.split('/').pop())
-    
-
+    // console.log(this.router.url.split('/').pop())
+  
     if( this.productId ){
       this.flagMobile = true;
     }

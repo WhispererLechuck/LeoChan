@@ -9,11 +9,11 @@
 }
 .popup{
     position: fixed;
-    background-color: rgb(230, 157, 49);
+    background-color: rgb(255, 218, 173);
     left: 20vw;
     top: 30vh;
     width: 60vw;
-    z-index: 100;
+    z-index: 200;
     padding: 26px 16px;
     border-radius: 3px;
     box-shadow: #0c0c0b 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -21,4 +21,27 @@
 }
 .popupActions{
     text-align: right;
+}
+button{
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+@media only screen and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    button{
+        font-size: 2vw;
+    }    
+
+    .popup{
+        position: fixed;
+        background-color: rgb(252,209,156);
+        left: 10vw;
+        top: 30vh;
+        width: 90vw;
+        z-index: 100;
+        padding: 26px 16px;
+        border-radius: 3px;
+        box-shadow: #0c0c0b 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    
+    }
+
 }

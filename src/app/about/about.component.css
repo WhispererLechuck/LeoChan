@@ -9,3 +9,6 @@ a{
     text-decoration: none;
     color: black;
 }
+.leoText{
+    text-shadow: rgb(236, 213, 124) 1px 0 3px;
+}

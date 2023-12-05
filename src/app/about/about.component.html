@@ -16,17 +16,21 @@
           </p>
         </div>
         <h4>Contact:</h4>
-        <div class=""><p>Email: <span>leo@leochan.pl</span></p></div>
         <div class="fs-3">
-          <i class="bi bi-envelope-heart-fill mx-1 icon"></i>
+          <i class="bi bi-envelope-heart-fill mx-1 icon" (click)="copyToClipboard('leo@leochan.pl')"></i>
           <i class="bi bi-twitter-x mx-1 icon" (click)="rickTriggers()"></i>
           <a href="https://github.com/WhispererLechuck" target="_blank"><i class="bi bi-github mx-1 icon"></i></a> 
           <i class="bi bi-facebook mx-1 icon" (click)="rickTriggers()"></i>
         </div>
+        <div class="alert alert-success" *ngIf="clipboardFlag">
+          <span >Email copied on clipboard!</span>
+          <button style="float: right;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeMessage()"></button>
+     </div> 
+
         <div class="rickContainer mt-2 " *ngIf="rickFlag">
           <div class="embed-responsive embed-responsive-16by9 ">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=kJ5TGpusoxzuIZ4c?&mute=0&autoplay=1"  allow='autoplay' allowfullscreen></iframe>
-            <p class="mt-3"> Sorry but are not a real supermarket. Therefore, this option is not possible.</p>
+            <p class="mt-3 leoText"> Apologies, but this is not an actual supermarket. Therefore, this option is not possible.</p>
           </div>
         </div>
       </div>
@@ -47,17 +51,20 @@
           </p>
         </div>
         <h4>Contact:</h4>
-        <div class=""><p>Email: <span>leo@leochan.pl</span></p></div>
         <div class="fs-3 ">
-          <i class="bi bi-envelope-heart-fill mx-1 icon"></i>
+          <i class="bi bi-envelope-heart-fill mx-1 icon" (click)="copyToClipboard('leo@leochan.pl')"></i>
           <i class="bi bi-twitter-x mx-1 icon" (click)="rickTriggers()"></i>
           <a href="https://github.com/WhispererLechuck" target="_blank"><i class="bi bi-github mx-1 icon"></i></a> 
           <i class="bi bi-facebook mx-1 icon" (click)="rickTriggers()"></i>
         </div>
+        <div class="alert alert-success" *ngIf="clipboardFlag">
+          <span >Email copied on clipboard!</span>
+          <button style="float: right;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeMessage()"></button>
+     </div> 
         <div class="rickContainer mt-2 " *ngIf="rickFlag">
           <div class="embed-responsive embed-responsive-16by9 ">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=kJ5TGpusoxzuIZ4c?&mute=0&autoplay=1"  allow='autoplay' allowfullscreen></iframe>
-            <p class="mt-3"> Sorry but are not a real supermarket. Therefore, this option is not possible.</p>
+            <p class="mt-3 leoText"> Apologies, but this is not an actual supermarket. Therefore, this option is not possible.</p>
           </div>
         </div>
       </div>

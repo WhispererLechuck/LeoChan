@@ -39,7 +39,7 @@ export class TypingComponent implements OnInit, OnDestroy {
    typeFunction = () =>{ 
     // Get substring with 1 characater added
     var text =  this.arraySentences[this._PART].substring(0, this._PART_INDEX + 1);
-    console.log(text)
+    // console.log(text)
     // _ELEMENT.innerHTML = text;
     this._ELEMENT.nativeElement.innerHTML = text;
     this._PART_INDEX++;
@@ -91,7 +91,7 @@ ngOnInit(): void {
   this._INTERVAL_VAL = setInterval(this.typeFunction, 100);
 }
 ngOnDestroy(): void {
-  console.log('leaving');
+  // console.log('leaving');
   clearInterval(this._INTERVAL_VAL);
 }
 

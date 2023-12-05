@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { AboutModel } from './about.model';
 import { ScreenSizeService } from '../shared/screen-size/screen-size.service';
+import { Clipboard } from '@angular/cdk/clipboard';
+
 
 @Component({
   selector: 'app-about',
@@ -11,9 +13,21 @@ export class AboutComponent implements OnInit{
 
   screenSize!: string;
   rickFlag:boolean = false;
+  clipboardFlag: boolean = false;
 
   rickTriggers(){
+    this.closeMessage();
     this.rickFlag = !this.rickFlag;
+  }
+
+  copyToClipboard(value: string){
+    this.rickFlag = false;
+    this.clipboardFlag = true;
+    this.clipboard.copy(value);
+  }
+
+  closeMessage(){
+    this.clipboardFlag = false;
   }
 
   @HostListener('window:resize', ['$event'])
@@ -21,12 +35,15 @@ export class AboutComponent implements OnInit{
     this.screenSize = this.screenSizeService.getScreenSize(); 
   }
 
+  
+
   ngOnInit(): void {
     this.screenSize = this.screenSizeService.getScreenSize();
   }
 
   constructor(
     private screenSizeService: ScreenSizeService,
+    private clipboard: Clipboard,
   ){};
 
     aboutSections: AboutModel[] = [

@@ -28,6 +28,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TypingComponent } from './home/typing/typing.component';
 import { PopUpApplyComponent } from './careers/pop-up-apply/pop-up-apply.component';
 import { AppCarouselComponent } from './about/app-carousel/app-carousel.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AppCarouselComponent } from './about/app-carousel/app-carousel.componen
     TypingComponent,
     PopUpApplyComponent,
     AppCarouselComponent,
+    LoaderComponent,
     
   ],
   imports: [

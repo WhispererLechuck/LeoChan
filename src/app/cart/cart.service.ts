@@ -15,6 +15,14 @@ export class CartService{
     return this.cart.slice();
   }
 
+  checkChart(){
+    if(this.cart.length==0){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
   getProduct(name: string){
     const index = this.getCart().findIndex(x => x.name ===name);
     return this.cart[index];

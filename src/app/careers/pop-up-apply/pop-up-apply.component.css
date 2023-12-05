@@ -10,7 +10,7 @@
     }
     .popup{
         position: fixed;
-        background-color: #e69d31;
+        background-color: rgb(255, 218, 173);
         left: 10vw;
         top: 30vh;
         width: 90vw;
@@ -22,6 +22,7 @@
     .popupActions{
         text-align: right;
     }
+
 }
 
 @media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -36,7 +37,7 @@
     }
     .popup{
         position: fixed;
-        background-color: rgb(230, 157, 49);
+        background-color: rgb(252,209,156);
         left: 20vw;
         top: 30vh;
         width: 60vw;
