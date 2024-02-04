@@ -23,7 +23,7 @@ export class ProductsService {
     this.getProducts().forEach(element => {
       if (element.name.toLowerCase().includes(chars.toLowerCase()) || element.name.toLowerCase().startsWith(chars.toLowerCase())){
         if(element.imagePath===undefined){
-           element.imagePath = 'https://th.bing.com/th/id/OIG.5wfy6w_logjuUqG.QnfO?pid=ImgGn&w=1024&h=1024&rs=1';
+           element.imagePath = '/assets/img/LeoChan - Default.jpeg';
           }
         products.push(element);
       }
@@ -36,7 +36,7 @@ export class ProductsService {
     this.getProducts().forEach(element => {
       if (element.category === category){
         if(element.imagePath===undefined){
-           element.imagePath = 'https://th.bing.com/th/id/OIG.5wfy6w_logjuUqG.QnfO?pid=ImgGn&w=1024&h=1024&rs=1';
+           element.imagePath = '/assets/img/LeoChan - Default.jpeg';
           }
         products.push(element);
       }

@@ -53,7 +53,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit{
       }
       this.product = this.productsService.getItem(productName);
         });
-        this.product.imagePath = 'https://th.bing.com/th/id/OIG.5wfy6w_logjuUqG.QnfO?pid=ImgGn&w=1024&h=1024&rs=1';
+        this.product.imagePath = '/assets/img/LeoChan - Default.jpeg';
         ;
     }
     ngAfterViewInit(): void {

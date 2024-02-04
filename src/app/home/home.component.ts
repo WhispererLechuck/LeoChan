@@ -8,8 +8,6 @@ import { ScreenSizeService } from '../shared/screen-size/screen-size.service';
 })
 export class HomeComponent {
   screenSize!: string;
-
-
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.screenSize = this.screenSizeService.getScreenSize(); 
